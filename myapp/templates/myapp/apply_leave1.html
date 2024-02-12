@@ -1,0 +1,15 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+  <h2>Apply for Leave</h2>
+  <form method="post">
+    {% csrf_token %}
+    <label for="start_date">Start Date:</label>
+    <input type="date" name="start_date"><br>
+    <label for="end_date">End Date:</label>
+    <input type="date" name="end_date"><br>
+    <label for="leave_type">Leave Type:</label>
+    <input type="text" name="leave_type"><br>
+    <button type="submit">Submit</button>
+  </form>
+{% endblock %}

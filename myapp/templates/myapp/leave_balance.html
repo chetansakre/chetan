@@ -1,0 +1,9 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+{% comment %} <form method="post"> {% endcomment %}
+  {% csrf_token %}
+  <h2>Your Leave Balance</h2>
+  <p>Your current leave balance: {{ date_diff.balance }} days</p>
+{% comment %} </form> {% endcomment %}
+{% endblock %}

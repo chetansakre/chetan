@@ -1,0 +1,26 @@
+<!-- leave_list.html -->
+{% extends 'myapp/base.html' %} <!-- You can extend a base template if you have one -->
+
+{% block content %}
+<h1>Apply For Leave</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {% comment %} Leave count is: {{leave_count}}
+    Leave count is: {{date_diff}} {% endcomment %}
+ 
+
+    {% comment %} username is :{{user.username}} {% endcomment %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Apply Leave</button>
+</form>
+</ul>
+{% comment %} {% include 'myapp/leave_balance.html' %} {% endcomment %}
+{% endblock %}
+
+
+
+
+
+
+

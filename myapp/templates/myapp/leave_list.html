@@ -1,0 +1,59 @@
+<!-- leave_list.html -->
+{% extends 'myapp/base.html' %} <!-- You can extend a base template if you have one -->
+
+{% block content %}
+<h1>Employee's Leave Requests</h1>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Start Date</th>
+        <th scope="col">End Date</th>
+        <th scope="col">Status</th>
+        <th scope="col">Leave Type</th>
+        <th scope="col">Action</th>
+
+    
+
+
+      </tr>
+    </thead>
+    <tbody>
+        {% for leave_request in leave_requests %}
+        <tr>
+        <th scope="row">{{leave_request.start_date|date:'d-M-Y'}}</th>
+        <td>{{leave_request.end_date|date:'d-M-Y'}}</td>
+        <td>{{ leave_request.status}}</td>
+        <td>{{leave_request.leave_type }}</td>
+        <td><a  class="btn btn-success" href="/approve/{{leave_request.id }}">Approve</a>    <a  class="btn btn-danger" href="/reject/{{leave_request.id }}">Reject</a></td>
+
+
+
+     
+        
+
+
+
+      
+
+
+
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% comment %} <ul>
+    {% for leave_request in leave_requests %}
+        <li>
+            <strong>Start Date:</strong> {{ leave_request.start_date }}<br>
+            <strong>End Date:</strong> {{ leave_request.end_date }}<br>
+            <strong>Status:</strong> {{ leave_request.status }}<br>
+            <strong>Reason:</strong> {{ leave_request.reason }}<br>
+        </li>
+    {% empty %}
+        <li>No leave requests found.</li>
+    {% endfor %}
+</ul> {% endcomment %}
+
+
+{% endblock %}
